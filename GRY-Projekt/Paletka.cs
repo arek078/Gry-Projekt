@@ -59,5 +59,13 @@ namespace GRY_Projekt
                 wPrawo = false;
             }
         }
+
+        
+
+        private void KoniecGry()
+        {
+            timer1.Stop();
+        }
     }
+
 }
