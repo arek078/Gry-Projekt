@@ -76,6 +76,23 @@ namespace GRY_Projekt
             {
                 wPrawo = false;
             }
+            if (pilka.Left + pilka.Width > ClientSize.Width || pilka.Left < 0)
+            {
+                pilkax = -pilkax;
+            }
+            if (pilka.Top < 0 || pilka.Bounds.IntersectsWith(Gracz.Bounds))
+            {
+                pilkay = -pilkay;
+            }
+            if (pilka.Top + pilka.Height > ClientSize.Height)
+            {
+                KoniecGry();
+                MessageBox.Show("Przegrałeś. Zaczynamy od tego momentu");
+                pilka.Location = new System.Drawing.Point(64, 471);
+                timer1.Start();
+
+            }
+            
             
 
 
