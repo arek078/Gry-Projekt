@@ -86,21 +86,80 @@ namespace GRY_Projekt
             }
             if (pilka.Top + pilka.Height > ClientSize.Height)
             {
+                timer1.Stop();
+                MessageBox.Show("Przegrałeś","Informacja",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 KoniecGry();
-                MessageBox.Show("Przegrałeś. Zaczynamy od tego momentu");
-                pilka.Location = new System.Drawing.Point(64, 471);
-                timer1.Start();
 
             }
-            
-            
+
+            foreach (Control x in this.Controls)
+            {
+                if (x is PictureBox && x.Tag == "plytka")
+                {
+                    if (pilka.Bounds.IntersectsWith(x.Bounds))
+                    {
+                        this.Controls.Remove(x);
+                        pilkay = -pilkay;
+                        punkty++;
+
+                    }
+                }
+                if (punkty> 29)
+                {
+                    timer1.Stop();
+                    MessageBox.Show("Wygrałes");
+                    KoniecGry();
+                    
+                }
+            }
+
 
 
         }
 
         private void KoniecGry()
         {
-            timer1.Stop();
+                            if (MessageBox.Show(" Zaczynamy od nowa ", "Informacja", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    pilka.Location = new System.Drawing.Point(64, 471);
+                this.Controls.Add(pictureBox1);
+                this.Controls.Add(pictureBox2);
+                this.Controls.Add(pictureBox3);
+                this.Controls.Add(pictureBox4);
+                this.Controls.Add(pictureBox5);
+                this.Controls.Add(pictureBox6);
+                this.Controls.Add(pictureBox7);
+                this.Controls.Add(pictureBox8);
+                this.Controls.Add(pictureBox9);
+                this.Controls.Add(pictureBox10);
+                this.Controls.Add(pictureBox11);
+                this.Controls.Add(pictureBox12);
+                this.Controls.Add(pictureBox13);
+                this.Controls.Add(pictureBox14);
+                this.Controls.Add(pictureBox15);
+                this.Controls.Add(pictureBox16);
+                this.Controls.Add(pictureBox17);
+                this.Controls.Add(pictureBox18);
+                this.Controls.Add(pictureBox19);
+                this.Controls.Add(pictureBox20);
+                this.Controls.Add(pictureBox21);
+                this.Controls.Add(pictureBox22);
+                this.Controls.Add(pictureBox23);
+                this.Controls.Add(pictureBox24);
+                this.Controls.Add(pictureBox25);
+                this.Controls.Add(pictureBox26);
+                this.Controls.Add(pictureBox27);
+                this.Controls.Add(pictureBox28);
+                this.Controls.Add(pictureBox29);
+                this.Controls.Add(pictureBox30);
+
+
+
+                timer1.Start();
+                }else
+                {
+                    this.Close();
+                }
         }
     }
 
