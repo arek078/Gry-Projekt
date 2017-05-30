@@ -16,8 +16,8 @@ namespace GRY_Projekt
         bool wLewo;
         int predkosc = 10;
 
-        int pilkax = 3;
-        int pilkay = 3;
+        int pilkax = 6;
+        int pilkay = 6;
 
         int punkty = 0;
 
@@ -60,7 +60,26 @@ namespace GRY_Projekt
             }
         }
 
-        
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            pilka.Left += pilkax; //Pilka sie porusza
+            pilka.Top += pilkay;
+            wynik.Text = "Wynik: " + punkty;
+            if (wLewo) { Gracz.Left -= predkosc; }
+            if (wPrawo) { Gracz.Left += predkosc; }
+
+            if (Gracz.Left < 1)
+            {
+                wLewo = false;
+            }
+            else if (Gracz.Left + Gracz.Width > 1020)
+            {
+                wPrawo = false;
+            }
+            
+
+
+        }
 
         private void KoniecGry()
         {
