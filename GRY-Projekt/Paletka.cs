@@ -34,5 +34,30 @@ namespace GRY_Projekt
                 }
             }
         }
+
+        private void keydown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Left && Gracz.Left>0)
+            {
+                wLewo = true;
+            }
+
+            if (e.KeyCode==Keys.Right && Gracz.Left+Gracz.Width<1020)
+            {
+                wPrawo = true;
+            }
+        }
+
+        private void keyup(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Left)
+            {
+                wLewo = false;
+            }
+            if (e.KeyCode==Keys.Right)
+            {
+                wPrawo = false;
+            }
+        }
     }
 }

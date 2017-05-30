@@ -475,6 +475,8 @@
             this.MaximizeBox = false;
             this.Name = "Paletka";
             this.Text = "Paletka";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keydown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyup);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
