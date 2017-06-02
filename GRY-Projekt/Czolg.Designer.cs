@@ -44,6 +44,7 @@
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblpoczatek = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gracz)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -216,11 +217,22 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 20;
             // 
+            // lblpoczatek
+            // 
+            this.lblpoczatek.AutoSize = true;
+            this.lblpoczatek.Font = new System.Drawing.Font("Century", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblpoczatek.Location = new System.Drawing.Point(286, 183);
+            this.lblpoczatek.Name = "lblpoczatek";
+            this.lblpoczatek.Size = new System.Drawing.Size(43, 15);
+            this.lblpoczatek.TabIndex = 14;
+            this.lblpoczatek.Text = "label2";
+            // 
             // Czolg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 461);
+            this.Controls.Add(this.lblpoczatek);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox10);
@@ -274,5 +286,6 @@
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblpoczatek;
     }
 }

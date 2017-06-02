@@ -156,6 +156,8 @@ namespace GRY_Projekt
 
 
                 timer1.Start();
+                punkty = 0;
+                //pilka.Location = new System.Drawing.Point(11, 11);
                 }else
                 {
                     this.Close();

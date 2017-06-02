@@ -22,16 +22,47 @@ namespace GRY_Projekt
         public Czolg()
         {
             InitializeComponent();
+            string poczatek = "Żeby zacząć grę " + "\nNaciśniej ENTER";
+            lblpoczatek.Text = poczatek;
         }
 
         private void keydown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                timer1.Start();
+                lblpoczatek.Visible = false;
+            }
+            if (e.KeyCode == Keys.Left)
+            {
+                wlewo = true;
+            }
+            if (e.KeyCode == Keys.Right)
+            {
+                wprawo = true;
+            }
+            if (e.KeyCode == Keys.Space && !czyStrzal)
+            {
+                czyStrzal = true;
 
+                zrobStrzal();
+            }
         }
 
         private void keyup(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Left)
+            {
+                wlewo = false;
+            }
+            if (e.KeyCode == Keys.Right)
+            {
+                wprawo = false;
+            }
+            if (czyStrzal)
+            {
+                czyStrzal = false;
+            }
         }
         private void zrobStrzal()
         {
