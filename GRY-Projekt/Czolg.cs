@@ -75,5 +75,23 @@ namespace GRY_Projekt
             this.Controls.Add(strzal);
             strzal.BringToFront();
         }
+        private void KoniecGry()
+        {
+            timer1.Stop();
+            label1.Text += "Koniec gry";
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (wlewo)
+            {
+                gracz.Left -= graczPredkosc;
+            }
+            else if (wprawo)
+            {
+                gracz.Left += graczPredkosc;
+            }
+
+        }
     }
 }
