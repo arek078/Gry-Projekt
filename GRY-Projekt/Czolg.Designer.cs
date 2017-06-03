@@ -84,7 +84,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::GRY_Projekt.Properties.Resources.obraz1;
-            this.pictureBox2.Location = new System.Drawing.Point(566, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(566, 65);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(50, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -117,7 +117,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::GRY_Projekt.Properties.Resources.obraz1;
-            this.pictureBox5.Location = new System.Drawing.Point(230, 12);
+            this.pictureBox5.Location = new System.Drawing.Point(230, 65);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(50, 50);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -150,7 +150,7 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = global::GRY_Projekt.Properties.Resources.obraz1;
-            this.pictureBox8.Location = new System.Drawing.Point(398, 12);
+            this.pictureBox8.Location = new System.Drawing.Point(398, 65);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(50, 50);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -172,7 +172,7 @@
             // pictureBox10
             // 
             this.pictureBox10.Image = global::GRY_Projekt.Properties.Resources.obraz1;
-            this.pictureBox10.Location = new System.Drawing.Point(62, 12);
+            this.pictureBox10.Location = new System.Drawing.Point(62, 65);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(50, 50);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -214,7 +214,6 @@
             // 
             // timer1
             // 
-            this.timer1.Enabled = true;
             this.timer1.Interval = 20;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 

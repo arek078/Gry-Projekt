@@ -92,6 +92,23 @@ namespace GRY_Projekt
                 gracz.Left += graczPredkosc;
             }
 
+            foreach (Control x in this.Controls)
+            {
+
+                if (x is PictureBox && x.Tag == "stworek")
+                {
+                    if (((PictureBox)x).Bounds.IntersectsWith(gracz.Bounds))
+                    {
+                        KoniecGry();
+                    }
+                    ((PictureBox)x).Left += predkosc;
+                    if (((PictureBox)x).Left > 720)
+                    {
+                        ((PictureBox)x).Top += ((PictureBox)x).Height + 10;
+                        ((PictureBox)x).Left = -50;
+                    }
+                }
+            }
         }
     }
 }
