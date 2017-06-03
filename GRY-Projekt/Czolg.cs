@@ -109,6 +109,17 @@ namespace GRY_Projekt
                     }
                 }
             }
+            foreach (Control y in this.Controls)
+            {
+                if (y is PictureBox && y.Tag == "strzaly")
+                {
+                    y.Top -= 20;
+                    if (((PictureBox)y).Top < this.Height - 490)
+                    {
+                        this.Controls.Remove(y);
+                    }
+                }
+            }
         }
     }
 }
