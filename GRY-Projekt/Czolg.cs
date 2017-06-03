@@ -77,8 +77,8 @@ namespace GRY_Projekt
         }
         private void KoniecGry()
         {
-            timer1.Stop();
-            label1.Text += "Koniec gry";
+            MessageBox.Show(" Koniec Gry ", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -99,6 +99,9 @@ namespace GRY_Projekt
                 {
                     if (((PictureBox)x).Bounds.IntersectsWith(gracz.Bounds))
                     {
+                        timer1.Stop();
+
+                        MessageBox.Show(" Przegrałeś ", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         KoniecGry();
                     }
                     ((PictureBox)x).Left += predkosc;
@@ -138,6 +141,14 @@ namespace GRY_Projekt
                         }
                     }
                 }
+            }
+            label1.Text = "Score : " + score;
+            if (score > sumaStworkow - 1)
+            {
+                timer1.Stop();
+
+                MessageBox.Show(" Wygrałeś ", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                KoniecGry();
             }
         }
     }
