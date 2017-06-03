@@ -120,6 +120,25 @@ namespace GRY_Projekt
                     }
                 }
             }
+
+            foreach (Control i in this.Controls)
+            {
+                foreach (Control j in this.Controls)
+                {
+                    if (i is PictureBox && i.Tag == "stworek")
+                    {
+                        if (j is PictureBox && j.Tag == "strzaly")
+                        {
+                            if (i.Bounds.IntersectsWith(j.Bounds))
+                            {
+                                score++;
+                                this.Controls.Remove(i);
+                                this.Controls.Remove(j);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
