@@ -120,6 +120,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Wisielec";
             this.Text = "Wisielec";
+            this.Shown += new System.EventHandler(this.Pokaz);
             this.ResumeLayout(false);
             this.PerformLayout();
 
