@@ -48,9 +48,56 @@ namespace GRY_Projekt
 
         }
 
+        private void RysujCzesciCiala(CzesciCiala cc)
+        {
+            Graphics g = panel1.CreateGraphics();
+            Pen p = new Pen(Color.Red, 2);
+            if (cc == CzesciCiala.Glowa)
+            {
+                g.DrawEllipse(p, 40, 50, 40, 40);
+
+            }
+            else if (cc == CzesciCiala.Lewe_Oko)
+            {
+                SolidBrush s = new SolidBrush(Color.Blue);
+                g.FillEllipse(s, 50, 60, 5, 5);
+            }
+            else if (cc == CzesciCiala.Prawe_Oko)
+            {
+                SolidBrush s = new SolidBrush(Color.Blue);
+                g.FillEllipse(s, 63, 60, 5, 5);
+            }
+            else if (cc == CzesciCiala.Nos)
+            {
+                g.DrawArc(p, 50, 60, 20, 20, 45, 90);
+            }
+            else if (cc == CzesciCiala.Cialo)
+            {
+                g.DrawLine(p, new Point(60, 90), new Point(60, 170));
+            }
+            else if (cc == CzesciCiala.Lewe_Ramie)
+            {
+                g.DrawLine(p, new Point(60, 100), new Point(30, 85));
+            }
+            else if (cc == CzesciCiala.Prawe_Ramie)
+            {
+                g.DrawLine(p, new Point(60, 100), new Point(90, 85));
+            }
+            else if (cc == CzesciCiala.Lewa_Noga)
+            {
+                g.DrawLine(p, new Point(60, 170), new Point(30, 190));
+
+            }
+            else if (cc == CzesciCiala.Prawa_Noga)
+            {
+                g.DrawLine(p, new Point(60, 170), new Point(90, 190));
+
+            }
+        }
         private void Pokaz(object sender, EventArgs e)
         {
             RysujSlup();
+          //  RysujCzesciCiala(CzesciCiala.Glowa); /*Sprawdzenie jak wyglada*/
 
         }
     }
