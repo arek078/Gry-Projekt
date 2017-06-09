@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+
 
 namespace GRY_Projekt
 {
@@ -94,10 +96,37 @@ namespace GRY_Projekt
 
             }
         }
+
+        private string WybierzLosowoSlowo()
+        {
+            WebClient wc = new WebClient();
+            string WordList = wc.DownloadString("https://www.d.umn.edu/~rave0029/research/adjectives1.txt");
+            string[] slowa = WordList.Split('\n');
+            Random los = new Random();
+            return slowa[los.Next(0, slowa.Length - 1)];
+        }
+        private void TworzPodstawyLiter()
+        {
+            slowo = WybierzLosowoSlowo();
+            char[] chars = slowo.ToCharArray();
+            int between = 330 / chars.Length - 1;
+            for (int i = 0; i < chars.Length - 1; i++)
+            {
+                labels.Add(new Label());
+                labels[i].Location = new Point((i * between) + 10, 80);
+                labels[i].Text = "___";
+                labels[i].Parent = groupBox1;
+                labels[i].BringToFront();
+                labels[i].CreateControl();
+
+            }
+            label1.Text += (chars.Length - 1).ToString();
+        }
         private void Pokaz(object sender, EventArgs e)
         {
             RysujSlup();
-          //  RysujCzesciCiala(CzesciCiala.Glowa); /*Sprawdzenie jak wyglada*/
+            TworzPodstawyLiter();
+            //  RysujCzesciCiala(CzesciCiala.Glowa); /*Sprawdzenie jak wyglada*/
 
         }
     }
