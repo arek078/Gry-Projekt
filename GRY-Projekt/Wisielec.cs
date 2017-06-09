@@ -28,7 +28,7 @@ namespace GRY_Projekt
             Glowa,
             Lewe_Oko,
             Prawe_Oko,
-            Nos,
+            Usta,
             Cialo,
             Prawe_Ramie,
             Lewe_Ramie,
@@ -83,7 +83,7 @@ namespace GRY_Projekt
                 SolidBrush s = new SolidBrush(Color.Blue);
                 g.FillEllipse(s, 63, 60, 5, 5);
             }
-            else if (cc == CzesciCiala.Nos)
+            else if (cc == CzesciCiala.Usta)
             {
                 g.DrawArc(p, 50, 60, 20, 20, 45, 90);
             }
@@ -117,7 +117,7 @@ namespace GRY_Projekt
             string WordList = wc.DownloadString("https://www.d.umn.edu/~rave0029/research/adjectives1.txt");
             string[] slowa = WordList.Split('\n');
             Random los = new Random();
-            return slowa[los.Next(0, slowa.Length - 1)];
+            return slowa[los.Next(0, slowa.Length-1 )];
         }
         private void TworzPodstawyLiter()
         {
@@ -140,7 +140,7 @@ namespace GRY_Projekt
         {
             RysujSlup();
             TworzPodstawyLiter();
-            //  RysujCzesciCiala(CzesciCiala.Glowa); /*Sprawdzenie jak wyglada*/
+            /*RysujCzesciCiala(CzesciCiala.Nos); Sprawdzenie jak wyglada*/
 
         }
         private void RestartGry()
@@ -152,14 +152,49 @@ namespace GRY_Projekt
             RysujSlup();
             suma = 0;
             label2.Text = "Przegrałeś";
+
             textBox1.Text = "";
 
 
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-           
+        { 
+         char letter = textBox1.Text.ToLower().ToCharArray()[0];
+            if (!char.IsLetter(letter))
+            {
+                MessageBox.Show("To nie litera");
+                return;
+            }
+            if (slowo.Contains(letter))
+            {
+                char[] letters = slowo.ToCharArray();
+                for (int i = 0; i<letters.Length; i++)
+                {
+                    if (letters[i] == letter)
+                    {
+                        labels[i].Text = letter.ToString();
+                    }
+                }
+                foreach (Label l in labels)
+                {
+                    if (l.Text == "_") return;
+                    MessageBox.Show("Odgadles slowo");
+                    RestartGry();
+                }
+            }
+            else
+            {
+                label2.Text += " " + letter.ToString() + ",";
+                RysujCzesciCiala((CzesciCiala)suma);
+                suma++;
+
+                if (suma == 9)
+                {
+                    MessageBox.Show("Nie udało się odgadnąć słowa " + slowo);
+                    RestartGry();
+                }
+            }
         }
     }
 }

@@ -93,18 +93,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(310, 252);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "label1";
+            this.label1.Text = "Ilość liter: ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(310, 294);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 7;
-            this.label2.Text = "label2";
+            this.label2.Text = "Litery użyte:";
             // 
             // Wisielec
             // 
