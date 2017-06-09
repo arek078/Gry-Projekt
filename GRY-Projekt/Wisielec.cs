@@ -47,7 +47,21 @@ namespace GRY_Projekt
         }
         private void button2_Click(object sender, EventArgs e)
         {
-
+            if (textBox2.Text == slowo)
+            {
+                MessageBox.Show("Odgadłeś słowo!!!");
+                RestartGry();
+            }
+            else
+            {
+                RysujCzesciCiala((CzesciCiala)suma);
+                suma++;
+                if (suma == 10)
+                {
+                    MessageBox.Show("Prawidlowe slowo " + slowo);
+                    RestartGry();
+                }
+            }
         }
 
         private void RysujCzesciCiala(CzesciCiala cc)
@@ -110,17 +124,17 @@ namespace GRY_Projekt
             slowo = WybierzLosowoSlowo();
             char[] chars = slowo.ToCharArray();
             int between = 330 / chars.Length - 1;
-            for (int i = 0; i < chars.Length - 1; i++)
+            for (int i = 0; i < chars.Length ; i++)
             {
                 labels.Add(new Label());
                 labels[i].Location = new Point((i * between) + 10, 80);
-                labels[i].Text = "___";
+                labels[i].Text = "_";
                 labels[i].Parent = groupBox1;
                 labels[i].BringToFront();
                 labels[i].CreateControl();
 
             }
-            label1.Text += (chars.Length - 1).ToString();
+            label1.Text += (chars.Length ).ToString();
         }
         private void Pokaz(object sender, EventArgs e)
         {
@@ -128,6 +142,24 @@ namespace GRY_Projekt
             TworzPodstawyLiter();
             //  RysujCzesciCiala(CzesciCiala.Glowa); /*Sprawdzenie jak wyglada*/
 
+        }
+        private void RestartGry()
+        {
+            Graphics g = panel1.CreateGraphics();
+            g.Clear(panel1.BackColor);
+            WybierzLosowoSlowo();
+            TworzPodstawyLiter();
+            RysujSlup();
+            suma = 0;
+            label2.Text = "Przegrałeś";
+            textBox1.Text = "";
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
