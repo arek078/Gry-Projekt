@@ -44,6 +44,7 @@
             this.pictureBoxW.Size = new System.Drawing.Size(306, 256);
             this.pictureBoxW.TabIndex = 0;
             this.pictureBoxW.TabStop = false;
+            this.pictureBoxW.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxW_Paint);
             // 
             // label1
             // 
@@ -74,6 +75,8 @@
             this.Controls.Add(this.pictureBoxW);
             this.Name = "Waz";
             this.Text = "Waz";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Waz_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Waz_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxW)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

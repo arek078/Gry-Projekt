@@ -22,6 +22,9 @@ namespace GRY_Projekt
         public Waz()
         {
             InitializeComponent();
+            timer1.Interval = 1000 / 4;
+            timer1.Tick += new EventHandler(Ustawienia);
+            timer1.Start();
             StartGry();
         }
 
@@ -34,9 +37,35 @@ namespace GRY_Projekt
             glowa.X = 1;
             glowa.Y = 5;
             waz.Add(glowa);
+            TworzJedzenie();
         }
 
+        #region Funk
+        private void Waz_KeyDown(object sender, KeyEventArgs e)
+        {
+            Ruch.ChangeState(e.KeyCode, true);
 
-        
+        }
+
+        private void Waz_KeyUp(object sender, KeyEventArgs e)
+        {
+            Ruch.ChangeState(e.KeyCode, false);
+        }
+
+        private void pictureBoxW_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics tlo = e.Graphics;
+        }
+        #endregion
+        private void TworzJedzenie()
+        { }
+
+        private void Ustawienia(object sender, EventArgs e)
+        { }
+
+        private void UstawieniaWaz()
+        { }
+
+
     }
 }
