@@ -134,7 +134,7 @@ namespace GRY_Projekt
                 labels[i].CreateControl();
 
             }
-            label1.Text += (chars.Length ).ToString();
+            label1.Text += (chars.Length ).ToString() + ",";
         }
         private void Pokaz(object sender, EventArgs e)
         {
@@ -151,8 +151,8 @@ namespace GRY_Projekt
             TworzPodstawyLiter();
             RysujSlup();
             suma = 0;
-            label2.Text = "Przegrałeś";
-
+            label2.Text = "Litery";
+            //label1.Text = "";
             textBox1.Text = "";
 
 
