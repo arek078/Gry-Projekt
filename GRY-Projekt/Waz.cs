@@ -58,7 +58,14 @@ namespace GRY_Projekt
         }
         #endregion
         private void TworzJedzenie()
-        { }
+        {
+            int max_w = pictureBoxW.Size.Width / szerokosc;
+            int max__h = pictureBoxW.Size.Height / wysoksc;
+            Random random = new Random();
+            czesci_jedzenia = new Punkt();
+            czesci_jedzenia.X = random.Next(0, max_w);
+            czesci_jedzenia.Y = random.Next(0, max_h);
+        }
 
         private void Ustawienia(object sender, EventArgs e)
         { }
