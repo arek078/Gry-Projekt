@@ -35,9 +35,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(73, 133);
+            this.button1.Location = new System.Drawing.Point(38, 133);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(159, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "START";
             this.button1.UseVisualStyleBackColor = true;
@@ -59,9 +59,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 30);
+            this.label1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label1.Location = new System.Drawing.Point(35, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 13);
+            this.label1.Size = new System.Drawing.Size(230, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Wybierz grę i naciśnij START";
             // 
@@ -69,12 +71,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lista_rozwijana1);
             this.Controls.Add(this.button1);
+            this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "GRY";
             this.ResumeLayout(false);
             this.PerformLayout();
 

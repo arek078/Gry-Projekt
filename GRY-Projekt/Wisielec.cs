@@ -196,5 +196,10 @@ namespace GRY_Projekt
                 }
             }
         }
+
+        private void wyjścieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

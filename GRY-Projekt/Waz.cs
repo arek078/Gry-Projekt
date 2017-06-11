@@ -74,10 +74,10 @@ namespace GRY_Projekt
             {
                 for (int i = 0; i < waz.Count; i++)
                 {
-                    Brush snake_color = i == 0 ? Brushes.Red : Brushes.Black;
+                    Brush snake_color = i == 0 ? Brushes.Blue : Brushes.Black;
                     tlo.FillRectangle(snake_color, new Rectangle(waz[i].X * szerokosc, waz[i].Y * wysoksc, szerokosc, wysoksc));
                 }
-                tlo.FillRectangle(Brushes.Orange, new Rectangle(czesci_jedzenia.X * szerokosc, czesci_jedzenia.Y * wysoksc, szerokosc, wysoksc));
+                tlo.FillRectangle(Brushes.Green, new Rectangle(czesci_jedzenia.X * szerokosc, czesci_jedzenia.Y * wysoksc, szerokosc, wysoksc));
                 label1.Text = "Wynik " + punkty;
             }
 
@@ -97,6 +97,8 @@ namespace GRY_Projekt
         {
             if (gameover)
             {
+                if (Ruch.Pressed(Keys.Enter))
+                    StartGry();
             }
             else
             {
@@ -146,11 +148,36 @@ namespace GRY_Projekt
                             waz[i].Y--;
                             break;
                     }
+                    int max_s = pictureBoxW.Width / szerokosc;
+                    int max_w = pictureBoxW.Height / wysoksc;
+                    if (waz[i].X < 0 || waz[i].X >= max_s || waz[i].Y < 0 || waz[i].Y >= max_w)
+                        gameover = true;
+                    for (int j = 1; j < waz.Count; j++)
+                        if (waz[i].X == waz[j].X && waz[i].Y == waz[j].Y)
+                            gameover = true;
+                    if (waz[i].X == czesci_jedzenia.X && waz[i].Y == czesci_jedzenia.Y)
+                    {
+                        Punkt part = new Punkt();
+                        part.X = waz[waz.Count - 1].X;
+                        part.Y = waz[waz.Count - 1].Y;
+                        waz.Add(part);
+                        TworzJedzenie();
+                        punkty++;
+                    }
+                }
+                else
+                {
+                    waz[i].X = waz[i - 1].X;
+                    waz[i].Y = waz[i - 1].Y;
                 }
             }
+            
         
     }
 
-
+        private void wyjścieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -231,6 +231,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(684, 461);
             this.Controls.Add(this.lblpoczatek);
             this.Controls.Add(this.label1);
@@ -247,6 +248,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gracz);
+            this.MaximizeBox = false;
             this.Name = "Czolg";
             this.Text = "Czolg";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keydown);
