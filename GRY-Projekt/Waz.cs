@@ -17,6 +17,7 @@ namespace GRY_Projekt
         const int wysoksc = 16;
         bool gameover = false;
         int punkty = 0;
+        int kierunek = 0; // w górę = 3,dół = 0, W prawo = 2, Lewo = 1
         Punkt czesci_jedzenia = new Punkt();
 
         public Waz()
@@ -93,10 +94,62 @@ namespace GRY_Projekt
         }
 
         private void Ustawienia(object sender, EventArgs e)
-        { }
+        {
+            if (gameover)
+            {
+            }
+            else
+            {
+                if (Ruch.Pressed(Keys.Right))
+                {
+                    if (waz.Count < 2 || waz[0].X == waz[1].X)
+                        kierunek = 2;
+                }
+                else if (Ruch.Pressed(Keys.Left))
+                {
+                    if (waz.Count < 2 || waz[0].X == waz[1].X)
+                        kierunek = 1;
+                }
+                else if (Ruch.Pressed(Keys.Up))
+                {
+                    if (waz.Count < 2 || waz[0].Y == waz[1].Y)
+                        kierunek = 3;
+                }
+                else if (Ruch.Pressed(Keys.Down))
+                {
+                    if (waz.Count < 2 || waz[0].Y == waz[1].Y)
+                        kierunek = 0;
+                }
+                UstawieniaWaz();
+            }
+            pictureBoxW.Invalidate();
+        }
 
         private void UstawieniaWaz()
-        { }
+        {
+            for (int i = waz.Count - 1; i >= 0; i--)
+            {
+                if (i == 0)
+                {
+                    switch (kierunek)
+                    {
+                        case 0: // Down
+                            waz[i].Y++;
+                            break;
+                        case 1: // Left
+                            waz[i].X--;
+                            break;
+                        case 2: // Right
+                            waz[i].X++;
+                            break;
+                        case 3: // Up
+                            waz[i].Y--;
+                            break;
+                    }
+                }
+            }
+        
+    }
 
 
     }
