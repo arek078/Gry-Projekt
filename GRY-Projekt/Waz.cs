@@ -55,12 +55,37 @@ namespace GRY_Projekt
         private void pictureBoxW_Paint(object sender, PaintEventArgs e)
         {
             Graphics tlo = e.Graphics;
-        }
+            if (gameover)
+            {
+                Font tekst = this.Font;
+                string przegrales_w = "Przegrales";
+                string nowa_gra = "Nacisjnij ENTER by zagrać ponownie";
+                int szerokosc = pictureBoxW.Width / 2;
+                SizeF wiadomosc_rozmiar = tlo.MeasureString(przegrales_w, tekst);
+                PointF wiadomosc_punkty = new PointF(szerokosc - wiadomosc_rozmiar.Width / 2, 16);
+                tlo.DrawString(przegrales_w, tekst, Brushes.White, wiadomosc_punkty);
+                wiadomosc_punkty = new PointF(szerokosc - wiadomosc_rozmiar.Width / 2, 32);
+                wiadomosc_rozmiar = tlo.MeasureString(nowa_gra, tekst);
+                wiadomosc_punkty = new PointF(szerokosc - wiadomosc_rozmiar.Width / 2, 48);
+                tlo.DrawString(nowa_gra, tekst, Brushes.White, wiadomosc_punkty);
+            }
+            else
+            {
+                for (int i = 0; i < waz.Count; i++)
+                {
+                    Brush snake_color = i == 0 ? Brushes.Red : Brushes.Black;
+                    tlo.FillRectangle(snake_color, new Rectangle(waz[i].X * szerokosc, waz[i].Y * wysoksc, szerokosc, wysoksc));
+                }
+                tlo.FillRectangle(Brushes.Orange, new Rectangle(czesci_jedzenia.X * szerokosc, czesci_jedzenia.Y * wysoksc, szerokosc, wysoksc));
+                label1.Text = "Wynik " + punkty;
+            }
+
+            }
         #endregion
         private void TworzJedzenie()
         {
             int max_w = pictureBoxW.Size.Width / szerokosc;
-            int max__h = pictureBoxW.Size.Height / wysoksc;
+            int max_h = pictureBoxW.Size.Height / wysoksc;
             Random random = new Random();
             czesci_jedzenia = new Punkt();
             czesci_jedzenia.X = random.Next(0, max_w);
