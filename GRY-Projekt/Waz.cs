@@ -19,13 +19,17 @@ namespace GRY_Projekt
         int punkty = 0;
         int kierunek = 0; // w górę = 3,dół = 0, W prawo = 2, Lewo = 1
         Punkt czesci_jedzenia = new Punkt();
-
+        int wazbieg=4;
+        Timer wazszybkosc = new Timer();
         public Waz()
         {
             InitializeComponent();
-            timer1.Interval = 1000 / 4;
+            timer1.Interval = 1000 / 10;
+            wazszybkosc.Interval = 1000 / wazbieg;
             timer1.Tick += new EventHandler(Ustawienia);
+            wazszybkosc.Tick += new EventHandler(UstawieniaWaz);
             timer1.Start();
+            wazszybkosc.Start();
             StartGry();
         }
 
@@ -33,9 +37,11 @@ namespace GRY_Projekt
         {
             gameover = false;
             punkty = 0;
+            wazbieg = 4;
+            wazszybkosc.Interval = 1000 / wazbieg;
             waz.Clear();
             Punkt glowa = new Punkt();
-            glowa.X = 1;
+            glowa.X = 7;
             glowa.Y = 5;
             waz.Add(glowa);
             TworzJedzenie();
@@ -122,12 +128,12 @@ namespace GRY_Projekt
                     if (waz.Count < 2 || waz[0].Y == waz[1].Y)
                         kierunek = 0;
                 }
-                UstawieniaWaz();
+                //UstawieniaWaz();
             }
             pictureBoxW.Invalidate();
         }
 
-        private void UstawieniaWaz()
+        private void UstawieniaWaz(object sender, EventArgs e)
         {
             for (int i = waz.Count - 1; i >= 0; i--)
             {
@@ -163,6 +169,11 @@ namespace GRY_Projekt
                         waz.Add(part);
                         TworzJedzenie();
                         punkty++;
+                        if (wazbieg<30)
+                        {
+                            wazbieg++;
+                            wazszybkosc.Interval = 1000 / wazbieg;
+                        }
                     }
                 }
                 else
