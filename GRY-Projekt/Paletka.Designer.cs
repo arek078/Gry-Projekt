@@ -400,7 +400,7 @@
             // 
             this.Gracz.BackColor = System.Drawing.Color.White;
             this.Gracz.Enabled = false;
-            this.Gracz.Location = new System.Drawing.Point(33, 683);
+            this.Gracz.Location = new System.Drawing.Point(262, 676);
             this.Gracz.Name = "Gracz";
             this.Gracz.Size = new System.Drawing.Size(175, 23);
             this.Gracz.TabIndex = 30;
@@ -419,12 +419,11 @@
             // wynik
             // 
             this.wynik.AutoSize = true;
-            this.wynik.BackColor = System.Drawing.Color.MintCream;
-            this.wynik.Font = new System.Drawing.Font("Bauhaus 93", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wynik.ForeColor = System.Drawing.Color.Black;
-            this.wynik.Location = new System.Drawing.Point(13, 13);
+            this.wynik.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wynik.ForeColor = System.Drawing.Color.Blue;
+            this.wynik.Location = new System.Drawing.Point(3, 9);
             this.wynik.Name = "wynik";
-            this.wynik.Size = new System.Drawing.Size(57, 16);
+            this.wynik.Size = new System.Drawing.Size(56, 18);
             this.wynik.TabIndex = 32;
             this.wynik.Text = "label1";
             // 
